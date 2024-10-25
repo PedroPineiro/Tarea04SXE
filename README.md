@@ -77,10 +77,6 @@ chown www-data: /srv/www
 curl https://wordpress.org/latest.tar.gz | tar zx -C /srv/www
 ```
 ![img_3.png](images/img_3.png)
-### Damos los permisos necesarios
-```
-chown -R www-data:www-data /srv/www
-```
 ___
 ### Ahora configuramos apache para WordPress
 ### Pero primero instalamos nano para editar el archivo (si no lo tenemos)
