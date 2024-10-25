@@ -83,12 +83,7 @@ chown -R www-data:www-data /srv/www
 ```
 ___
 ### Ahora configuramos apache para WordPress
-### Pero primero instalamos nano para editar el archivo
-```
-apt update
-apt install nano
-```
-### Pero primero instalamos nano para editar el archivo
+### Pero primero instalamos nano para editar el archivo (si no lo tenemos)
 ```
 apt update
 apt install nano
@@ -112,9 +107,9 @@ nano /etc/apache2/sites-available/wordpress.conf
      </Directory>
      ErrorLog ${APACHE_LOG_DIR}/error.log
      CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+ </VirtualHost>
 ```
-### Pegamos este contenido dentro del archivo
+### Initializamos el sitio de WordPress y recargamos apache
 ```
 a2ensite wordpress
 service apache2 reload
@@ -127,12 +122,6 @@ a2dissite 000-default
 ### Reiniciamos apache
 ```
 service apache2 restart
-```
-
-### Ahora volvemos a abrir el archivo de configuracion con nano para añadir lo especificado en la guia y recargamos apache
-```
-ServerName hostname.example.com
-service apache2 reload
 ```
 ___
 ### Ahora configuraremos la Database
@@ -151,20 +140,14 @@ QUIT;
 cp /srv/www/wordpress/wp-config-sample.php /srv/www/wordpress/wp-config.php
 ```
 ### Establecemos los datos
-```
-cp /srv/www/wordpress/wp-config-sample.php /srv/www/wordpress/wp-config.php
-```
 ![img_8.png](images/img_8.png)
 ### También los datos obtenidos en la guia, que son claves generadas aleatoriamente
 ![img_9.png](images/img_9.png)
-
 ### Accedemos al navegador con nuestra ip y el puerto 8000 para verificar
 ```
 http://192.168.0.25:8000/wp-admin/setup-config.php
 ```
 ![img_4.png](images/img_4.png)
 ### Por ultimo creamos la cuenta de WordPress y accedemos a ella
-
 ![img_6.png](images/img_6.png)
-
 ![img_7.png](images/img_7.png)
